@@ -450,146 +450,112 @@
 </div>
 
 <script>
-  const scenarios = {
+  // -----------------------------
+  // SCENARIO DATA (SAFE STRINGS)
+  // -----------------------------
+  var scenarios = {
     normal: {
       rows: [
-        { name: 'Acquirer A', latency: 120, approval: '95.1%', mdr: '1.80%', share: '52%', status: 'Preferred', statusClass: 'pill-good' },
-        { name: 'Acquirer B', latency: 210, approval: '92.4%', mdr: '1.95%', share: '33%', status: 'Healthy', statusClass: 'pill-good' },
-        { name: 'Acquirer C', latency: 340, approval: '88.7%', mdr: '2.10%', share: '15%', status: 'Degrading', statusClass: 'pill-warn' }
+        { name: "Acquirer A", latency: "120", approval: "95.1%", mdr: "1.80%", share: "52%", status: "Preferred", statusClass: "pill-good" },
+        { name: "Acquirer B", latency: "210", approval: "92.4%", mdr: "1.95%", share: "33%", status: "Healthy", statusClass: "pill-good" },
+        { name: "Acquirer C", latency: "340", approval: "88.7%", mdr: "2.10%", share: "15%", status: "Degrading", statusClass: "pill-warn" }
       ],
-      approvalsBefore: '91.2%',
-      approvalsAfter: '94.8%',
-      mdrBefore: '2.10%',
-      mdrAfter: '1.82%',
-      description: 'Normal conditions. Routing layer favors Acquirer A, with spillover to B and limited use of C.'
+      approvalsBefore: "91.2%",
+      approvalsAfter: "94.8%",
+      mdrBefore: "2.10%",
+      mdrAfter: "1.82%",
+      description: "Normal conditions. Routing layer favors Acquirer A, with spillover to B and limited use of C."
     },
     outage: {
       rows: [
-        { name: 'Acquirer A', latency: '—', approval: '—', mdr: '1.80%', share: '0%', status: 'Outage', statusClass: 'pill-bad' },
-        { name: 'Acquirer B', latency: 190, approval: '93.8%', mdr: '1.95%', share: '71%', status: 'Preferred', statusClass: 'pill-good' },
-        { name: 'Acquirer C', latency: 310, approval: '89.9%', mdr: '2.05%', share: '29%', status: 'Backup', statusClass: 'pill-warn' }
+        { name: "Acquirer A", latency: "—", approval: "—", mdr: "1.80%", share: "0%", status: "Outage", statusClass: "pill-bad" },
+        { name: "Acquirer B", latency: "190", approval: "93.8%", mdr: "1.95%", share: "71%", status: "Preferred", statusClass: "pill-good" },
+        { name: "Acquirer C", latency: "310", approval: "89.9%", mdr: "2.05%", share: "29%", status: "Backup", statusClass: "pill-warn" }
       ],
-      approvalsBefore: '88.4%',
-      approvalsAfter: '93.1%',
-      mdrBefore: '1.98%',
-      mdrAfter: '1.90%',
-      description: 'Acquirer A outage. Routing layer automatically shifts traffic to B and C to preserve approvals and uptime.'
+      approvalsBefore: "88.4%",
+      approvalsAfter: "93.1%",
+      mdrBefore: "1.98%",
+      mdrAfter: "1.90%",
+      description: "Acquirer A outage. Routing layer automatically shifts traffic to B and C to preserve approvals and uptime."
     },
     cost: {
       rows: [
-        { name: 'Acquirer A', latency: 130, approval: '94.2%', mdr: '2.30%', share: '18%', status: 'Cost spike', statusClass: 'pill-warn' },
-        { name: 'Acquirer B', latency: 205, approval: '93.1%', mdr: '1.85%', share: '57%', status: 'Preferred', statusClass: 'pill-good' },
-        { name: 'Acquirer C', latency: 320, approval: '89.4%', mdr: '1.90%', share: '25%', status: 'Backup', statusClass: 'pill-good' }
+        { name: "Acquirer A", latency: "130", approval: "94.2%", mdr: "2.30%", share: "18%", status: "Cost spike", statusClass: "pill-warn" },
+        { name: "Acquirer B", latency: "205", approval: "93.1%", mdr: "1.85%", share: "57%", status: "Preferred", statusClass: "pill-good" },
+        { name: "Acquirer C", latency: "320", approval: "89.4%", mdr: "1.90%", share: "25%", status: "Backup", statusClass: "pill-good" }
       ],
-      approvalsBefore: '92.0%',
-      approvalsAfter: '93.5%',
-      mdrBefore: '2.15%',
-      mdrAfter: '1.89%',
-      description: 'MDR spike on Acquirer A. Routing layer shifts volume to lower-cost acquirers while preserving approvals.'
+      approvalsBefore: "92.0%",
+      approvalsAfter: "93.5%",
+      mdrBefore: "2.15%",
+      mdrAfter: "1.89%",
+      description: "MDR spike on Acquirer A. Routing layer shifts volume to lower-cost acquirers while preserving approvals."
     }
   };
 
+  // -----------------------------
+  // RENDER SCENARIO
+  // -----------------------------
   function renderScenario(key) {
-    const scenario = scenarios[key];
-    const tbody = document.querySelector('#acquirer-table-advanced tbody');
-    tbody.innerHTML = scenario.rows.map(row => `
-      <tr>
-        <td>${row.name}</td>
-        <td>${row.latency}</td>
-        <td>${row.approval}</td>
-        <td>${row.mdr}</td>
-        <td>${row.share}</td>
-        <td><span class="pill ${row.statusClass}">${row.status}</span></td>
-      </tr>
-    `).join('');
+    var scenario = scenarios[key];
+    var tbody = document.querySelector("#acquirer-table-advanced tbody");
 
-document.getElementById('approvals-text').textContent =
-  "Before routing layer: " + scenario.approvalsBefore +
-  ". With routing layer: " + scenario.approvalsAfter + ".";
+    var html = "";
+    for (var i = 0; i < scenario.rows.length; i++) {
+      var r = scenario.rows[i];
+      html +=
+        "<tr>" +
+        "<td>" + r.name + "</td>" +
+        "<td>" + r.latency + "</td>" +
+        "<td>" + r.approval + "</td>" +
+        "<td>" + r.mdr + "</td>" +
+        "<td>" + r.share + "</td>" +
+        "<td><span class='pill " + r.statusClass + "'>" + r.status + "</span></td>" +
+        "</tr>";
+    }
+    tbody.innerHTML = html;
 
-document.getElementById('mdr-text').textContent =
-  "Before routing layer: " + scenario.mdrBefore +
-  ". With routing layer: " + scenario.mdrAfter + ".";
+    document.getElementById("approvals-text").textContent =
+      "Before routing layer: " + scenario.approvalsBefore +
+      ". With routing layer: " + scenario.approvalsAfter + ".";
 
-    document.getElementById('scenario-description').textContent = scenario.description;
+    document.getElementById("mdr-text").textContent =
+      "Before routing layer: " + scenario.mdrBefore +
+      ". With routing layer: " + scenario.mdrAfter + ".";
+
+    document.getElementById("scenario-description").textContent =
+      scenario.description;
   }
 
   function setScenario(key) {
     renderScenario(key);
   }
 
+  // -----------------------------
+  // MERCHANT SAVINGS CALCULATOR
+  // -----------------------------
   function calculateSavings() {
-    const volume = parseFloat(document.getElementById('volume').value || '0');
-    const mdrCurrent = parseFloat(document.getElementById('mdr-current').value || '0');
-    const mdrNew = parseFloat(document.getElementById('mdr-new').value || '0');
+    var volume = parseFloat(document.getElementById("volume").value || "0");
+    var mdrCurrent = parseFloat(document.getElementById("mdr-current").value || "0");
+    var mdrNew = parseFloat(document.getElementById("mdr-new").value || "0");
 
     if (!volume || !mdrCurrent || !mdrNew || mdrNew >= mdrCurrent) {
-      document.getElementById('savings-result').textContent =
-        'Enter valid values. Expected MDR with routing layer should be lower than current MDR.';
+      document.getElementById("savings-result").textContent =
+        "Enter valid values. Expected MDR with routing layer should be lower than current MDR.";
       return;
     }
 
-    const costCurrent = volume * (mdrCurrent / 100);
-    const costNew = volume * (mdrNew / 100);
-    const savings = costCurrent - costNew;
+    var costCurrent = volume * (mdrCurrent / 100);
+    var costNew = volume * (mdrNew / 100);
+    var savings = costCurrent - costNew;
 
-  document.getElementById('savings-result').textContent =
-  "Estimated annual savings: $" +
-  savings.toLocaleString(undefined, { maximumFractionDigits: 0 }) +
-  " USD.";
-
-
-  function simulateBid() {
-    const approval = parseFloat(document.getElementById('bid-approval').value || '0');
-    const mdr = parseFloat(document.getElementById('bid-mdr').value || '0');
-    const latency = parseFloat(document.getElementById('bid-latency').value || '0');
-
-    const score = (approval * 1.5) - (mdr * 20) - (latency * 0.05);
-
-    let share;
-    if (score >= 130) share = '≈ 60–75% of eligible volume';
-    else if (score >= 120) share = '≈ 40–60% of eligible volume';
-    else if (score >= 110) share = '≈ 25–40% of eligible volume';
-    else share = '≈ 10–25% of eligible volume';
-
-document.getElementById('bid-result').textContent =
-  "With these metrics, the routing engine would likely send " +
-  share +
-  " to Acquirer X.";
-
-
-  function initBrain() {
-    const container = document.getElementById('brain-nodes');
-    if (!container) return;
-    const labels = ['Latency', 'MDR', 'Approval', 'BIN', 'Card type', 'Region', 'Issuer', 'History', 'Risk', 'Token', '3DS', 'Fallback'];
-    container.innerHTML = labels.map(label => {
-      const size = 40 + Math.random() * 30;
-      const opacity = 0.4 + Math.random() * 0.4;
-      return `
-        <div style="
-          width:${size}px;
-          height:${size}px;
-          border-radius:999px;
-          background:radial-gradient(circle at 30% 30%, #22d3ee, #1d2433);
-          opacity:${opacity};
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          font-size:9px;
-          text-align:center;
-          color:#e5e7eb;
-        ">
-          ${label}
-        </div>
-      `;
-    }).join('');
+    document.getElementById("savings-result").textContent =
+      "Estimated annual savings: $" +
+      savings.toLocaleString(undefined, { maximumFractionDigits: 0 }) +
+      " USD.";
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderScenario('normal');
-    initBrain();
-  });
-</script>
-
-</body>
-</html>
+  // -----------------------------
+  // ACQUIRER BIDDING SIMULATOR
+  // -----------------------------
+  function simulateBid() {
+    var approval
