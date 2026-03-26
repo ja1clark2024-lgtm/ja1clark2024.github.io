@@ -558,4 +558,75 @@
   // ACQUIRER BIDDING SIMULATOR
   // -----------------------------
   function simulateBid() {
-    var approval
+    var approval = parseFloat(document.getElementById("bid-approval").value || "0");
+    var mdr = parseFloat(document.getElementById("bid-mdr").value || "0");
+    var latency = parseFloat(document.getElementById("bid-latency").value || "0");
+
+    var score = (approval * 1.5) - (mdr * 20) - (latency * 0.05);
+
+    var share = "";
+    if (score >= 130) {
+      share = "≈ 60–75% of eligible volume";
+    } else if (score >= 120) {
+      share = "≈ 40–60% of eligible volume";
+    } else if (score >= 110) {
+      share = "≈ 25–40% of eligible volume";
+    } else {
+      share = "≈ 10–25% of eligible volume";
+    }
+
+    document.getElementById("bid-result").textContent =
+      "With these metrics, the routing engine would likely send " +
+      share +
+      " to Acquirer X.";
+  }
+
+  // -----------------------------
+  // SMART ROUTING BRAIN VISUAL
+  // -----------------------------
+  function initBrain() {
+    var container = document.getElementById("brain-nodes");
+    if (!container) {
+      return;
+    }
+
+    var labels = [
+      "Latency", "MDR", "Approval", "BIN", "Card type",
+      "Region", "Issuer", "History", "Risk", "Token",
+      "3DS", "Fallback"
+    ];
+
+    var html = "";
+    for (var i = 0; i < labels.length; i++) {
+      var size = 40 + Math.random() * 30;
+      var opacity = 0.4 + Math.random() * 0.4;
+
+      html +=
+        "<div style='" +
+        "width:" + size + "px;" +
+        "height:" + size + "px;" +
+        "border-radius:999px;" +
+        "background:radial-gradient(circle at 30% 30%, #22d3ee, #1d2433);" +
+        "opacity:" + opacity + ";" +
+        "display:flex;" +
+        "align-items:center;" +
+        "justify-content:center;" +
+        "font-size:9px;" +
+        "text-align:center;" +
+        "color:#e5e7eb;" +
+        "'>" +
+        labels[i] +
+        "</div>";
+    }
+
+    container.innerHTML = html;
+  }
+
+  // -----------------------------
+  // INITIALIZE EVERYTHING
+  // -----------------------------
+  document.addEventListener("DOMContentLoaded", function () {
+    renderScenario("normal");
+    initBrain();
+  });
+</script>
