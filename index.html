@@ -533,9 +533,11 @@ document.getElementById('mdr-text').textContent =
     const costNew = volume * (mdrNew / 100);
     const savings = costCurrent - costNew;
 
-    document.getElementById('savings-result').textContent =
-      \`Estimated annual savings: \$\${savings.toLocaleString(undefined, {maximumFractionDigits: 0})} USD.\`;
-  }
+  document.getElementById('savings-result').textContent =
+  "Estimated annual savings: $" +
+  savings.toLocaleString(undefined, { maximumFractionDigits: 0 }) +
+  " USD.";
+
 
   function simulateBid() {
     const approval = parseFloat(document.getElementById('bid-approval').value || '0');
