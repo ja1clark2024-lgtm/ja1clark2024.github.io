@@ -552,9 +552,11 @@ document.getElementById('mdr-text').textContent =
     else if (score >= 110) share = '≈ 25–40% of eligible volume';
     else share = '≈ 10–25% of eligible volume';
 
-    document.getElementById('bid-result').textContent =
-      \`With these metrics, the routing engine would likely send \${share} to Acquirer X.\`;
-  }
+document.getElementById('bid-result').textContent =
+  "With these metrics, the routing engine would likely send " +
+  share +
+  " to Acquirer X.";
+
 
   function initBrain() {
     const container = document.getElementById('brain-nodes');
