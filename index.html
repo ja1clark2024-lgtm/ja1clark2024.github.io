@@ -503,10 +503,14 @@
       </tr>
     `).join('');
 
-    document.getElementById('approvals-text').textContent =
-      \`Before routing layer: \${scenario.approvalsBefore}. With routing layer: \${scenario.approvalsAfter}.\`;
-    document.getElementById('mdr-text').textContent =
-      \`Before routing layer: \${scenario.mdrBefore}. With routing layer: \${scenario.mdrAfter}.\`;
+document.getElementById('approvals-text').textContent =
+  "Before routing layer: " + scenario.approvalsBefore +
+  ". With routing layer: " + scenario.approvalsAfter + ".";
+
+document.getElementById('mdr-text').textContent =
+  "Before routing layer: " + scenario.mdrBefore +
+  ". With routing layer: " + scenario.mdrAfter + ".";
+
     document.getElementById('scenario-description').textContent = scenario.description;
   }
 
