@@ -118,7 +118,7 @@
       border-radius: 999px;
       background: rgba(34, 197, 94, 0.15);
       color: #bbf7d0;
-      margin-top: 8px;
+      margin-left: 6px;
     }
     section {
       padding: 40px;
@@ -190,6 +190,9 @@
       border-radius: 6px;
       padding: 6px;
     }
+    a {
+      color: #a5b4fc;
+    }
     @media (max-width: 800px) {
       .hero {
         grid-template-columns: 1fr;
@@ -204,7 +207,6 @@
     }
   </style>
 </head>
-
 <body>
 
 <header>
@@ -223,39 +225,64 @@
   <div>
     <div class="badge">Patent granted in India · Intelligent payment routing</div>
     <h1>Route every transaction to the best acquirer, in real time.</h1>
-    <p>A patented match engine that evaluates latency, cost, and approval rate for each transaction—then routes it to the optimal acquirer without changing your existing stack.</p>
+    <p>
+      A patented match engine that evaluates latency, cost, and approval rate for each transaction—
+      then routes it to the optimal acquirer without changing your existing stack.
+    </p>
     <div class="buttons">
       <button class="btn-primary">Book a 20-minute demo</button>
-      <button class="btn-secondary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">See routing simulation</button>
+      <button class="btn-secondary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">
+        See routing simulation
+      </button>
     </div>
-    <div class="hero-note">Designed for payment gateways, large merchants, and acquirers who want higher approvals, lower MDR, and built-in failover.</div>
+    <div class="hero-note">
+      Designed for payment gateways, large merchants, acquirers, and fintech platforms who want higher approvals,
+      lower MDR, and built-in failover.
+    </div>
   </div>
 
   <div class="hero-card">
     <h2>Live routing snapshot (simulated)</h2>
-    <div class="metric-row"><span>Approval rate (before)</span><span class="value">91.2%</span></div>
-    <div class="metric-row"><span>Approval rate (with routing layer)</span><span class="value">94.8% <span class="tag">+3.6 pts</span></span></div>
-    <div class="metric-row"><span>Average MDR (before)</span><span class="value">2.10%</span></div>
-    <div class="metric-row"><span>Average MDR (with routing layer)</span><span class="value">1.82% <span class="tag">0.28% savings</span></span></div>
+    <div class="metric-row">
+      <span>Approval rate (before)</span>
+      <span class="value">91.2%</span>
+    </div>
+    <div class="metric-row">
+      <span>Approval rate (with routing layer)</span>
+      <span class="value">94.8%<span class="tag">+3.6 pts</span></span>
+    </div>
+    <div class="metric-row">
+      <span>Average MDR (before)</span>
+      <span class="value">2.10%</span>
+    </div>
+    <div class="metric-row">
+      <span>Average MDR (with routing layer)</span>
+      <span class="value">1.82%<span class="tag">0.28% savings</span></span>
+    </div>
+    <p style="font-size:12px;color:#6b7280;margin-top:12px;">
+      For illustration only. Actual results depend on your acquirer mix, volumes, and card profile.
+    </p>
   </div>
 </section>
 
 <section id="solutions">
   <h3>Who this routing layer is built for</h3>
-  <p style="color:#9ca3af;font-size:14px;max-width:720px;">Four types of companies benefit immediately from intelligent, patented routing. Choose your category to see tailored value and ROI.</p>
+  <p style="color:#9ca3af;font-size:14px;max-width:720px;">
+    Four types of companies benefit immediately from intelligent, patented routing. Each sees different ROI.
+  </p>
 
   <div class="grid-4">
     <div class="card">
       <h4>Payment Gateways</h4>
-      <p>Increase approval rates, reduce downtime, and offer smart routing as a premium feature.</p>
+      <p>Increase approval rates, reduce downtime, and offer smart routing as a premium feature to your merchants.</p>
     </div>
     <div class="card">
       <h4>Large Merchants</h4>
-      <p>Cut MDR costs, reduce failed payments, and gain redundancy without changing your checkout.</p>
+      <p>Cut MDR costs, reduce failed payments, and gain redundancy without changing your checkout or gateway.</p>
     </div>
     <div class="card">
       <h4>Acquirers & Banks</h4>
-      <p>Win more transaction volume and benchmark performance across merchants and gateways.</p>
+      <p>Win more transaction volume and benchmark performance across merchants and gateways in real time.</p>
     </div>
     <div class="card">
       <h4>Fintech Platforms</h4>
@@ -266,26 +293,47 @@
 
 <section id="how">
   <h3>How it works</h3>
-  <p style="color:#9ca3af;font-size:14px;max-width:720px;">The routing layer sits between your platform and your acquirers. For each transaction, it evaluates real-time metrics—latency, cost, approval rate, geography—and selects the best acquirer.</p>
+  <p style="color:#9ca3af;font-size:14px;max-width:720px;">
+    The routing layer sits between your platform and your acquirers. For each transaction, it evaluates real-time metrics—
+    latency, cost, approval rate, geography—and selects the best acquirer. If an acquirer degrades or fails, traffic is
+    automatically shifted to healthier routes.
+  </p>
 
   <div class="grid-3" style="margin-top:20px;">
-    <div class="card"><h4>1. Ingest</h4><p>Your existing gateway sends transactions to the routing layer via a simple API.</p></div>
-    <div class="card"><h4>2. Evaluate</h4><p>The patented match engine scores each acquirer using live and historical metrics.</p></div>
-    <div class="card"><h4>3. Route & Learn</h4><p>Transactions are routed to the optimal acquirer. Performance improves continuously.</p></div>
+    <div class="card">
+      <h4>1. Ingest</h4>
+      <p>Your existing gateway or platform sends transactions to the routing layer via a simple API. No change to your checkout UX.</p>
+    </div>
+    <div class="card">
+      <h4>2. Evaluate</h4>
+      <p>The patented match engine scores each acquirer using live and historical metrics: latency, MDR, approval rate, BIN, card type, and more.</p>
+    </div>
+    <div class="card">
+      <h4>3. Route & Learn</h4>
+      <p>Transactions are routed to the optimal acquirer. Performance is continuously learned and updated, improving over time.</p>
+    </div>
   </div>
 </section>
 
 <section id="demo">
   <h3>Routing simulation</h3>
-  <p style="color:#9ca3af;font-size:14px;max-width:720px;">Toggle scenarios to see how the routing engine responds to outages, cost spikes, and performance changes.</p>
+  <p style="color:#9ca3af;font-size:14px;max-width:720px;">
+    Toggle scenarios to see how the routing engine responds to outages, cost spikes, and performance changes.
+  </p>
 
   <div class="card" style="margin-top:16px;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
       <h4>Scenario controls</h4>
       <div style="display:flex;gap:8px;">
-        <button class="btn-secondary" style="font-size:12px;padding:6px 10px;" onclick="setScenario('normal')">Normal</button>
-        <button class="btn-secondary" style="font-size:12px;padding:6px 10px;" onclick="setScenario('outage')">Outage</button>
-        <button class="btn-secondary" style="font-size:12px;padding:6px 10px;" onclick="setScenario('cost')">Cost spike</button>
+        <button class="btn-secondary" style="font-size:12px;padding:6px 10px;" onclick="setScenario('normal')">
+          Normal
+        </button>
+        <button class="btn-secondary" style="font-size:12px;padding:6px 10px;" onclick="setScenario('outage')">
+          Outage
+        </button>
+        <button class="btn-secondary" style="font-size:12px;padding:6px 10px;" onclick="setScenario('cost')">
+          Cost spike
+        </button>
       </div>
     </div>
 
@@ -304,8 +352,14 @@
     </table>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px;">
-      <div class="card"><h4>Before vs after (approvals)</h4><p id="approvals-text" style="font-size:13px;color:#9ca3af;"></p></div>
-      <div class="card"><h4>Before vs after (MDR)</h4><p id="mdr-text" style="font-size:13px;color:#9ca3af;"></p></div>
+      <div class="card">
+        <h4>Before vs after (approvals)</h4>
+        <p id="approvals-text" style="font-size:13px;color:#9ca3af;"></p>
+      </div>
+      <div class="card">
+        <h4>Before vs after (MDR)</h4>
+        <p id="mdr-text" style="font-size:13px;color:#9ca3af;"></p>
+      </div>
     </div>
 
     <p id="scenario-description" style="font-size:12px;color:#6b7280;margin-top:10px;"></p>
@@ -314,7 +368,9 @@
 
 <section id="savings">
   <h3>Merchant savings calculator</h3>
-  <p style="color:#9ca3af;font-size:14px;max-width:720px;">Estimate how much you could save annually by routing transactions intelligently.</p>
+  <p style="color:#9ca3af;font-size:14px;max-width:720px;">
+    Estimate how much you could save annually by routing transactions intelligently across acquirers.
+  </p>
 
   <div class="card" style="max-width:480px;margin-top:16px;">
     <label style="font-size:13px;">Annual transaction volume (USD)</label>
@@ -334,7 +390,9 @@
 
 <section id="bidding">
   <h3>Acquirer competition simulator</h3>
-  <p style="color:#9ca3af;font-size:14px;max-width:720px;">See how improvements in latency, approval rate, or MDR can shift routing share toward a given acquirer.</p>
+  <p style="color:#9ca3af;font-size:14px;max-width:720px;">
+    See how improvements in latency, approval rate, or MDR can shift routing share toward a given acquirer.
+  </p>
 
   <div class="card" style="margin-top:16px;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
@@ -361,20 +419,169 @@
 
 <section id="brain">
   <h3>The smart routing brain</h3>
-  <p style="color:#9ca3af;font-size:14px;max-width:720px;">The routing layer continuously learns from every transaction, updating its view of acquirer performance.</p>
+  <p style="color:#9ca3af;font-size:14px;max-width:720px;">
+    Under the hood, the routing layer continuously learns from every transaction, updating its view of acquirer performance.
+  </p>
 
   <div class="card" style="margin-top:16px;position:relative;overflow:hidden;">
     <div id="brain-nodes" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
-    <p style="font-size:12px;color:#6b7280;margin-top:10px;">Each “node” represents a metric snapshot (latency, approval, MDR, geography). The engine uses these to make routing decisions in real time.</p>
+    <p style="font-size:12px;color:#6b7280;margin-top:10px;">
+      Each “node” represents a metric snapshot (latency, approval, MDR, geography). The engine uses these to make routing decisions in real time.
+    </p>
   </div>
 </section>
 
 <section id="contact">
   <h3>Let’s talk</h3>
-  <p style="color:#9ca3af;font-size:14px;max-width:720px;">We’d be happy to walk you through the patent, the architecture, and potential licensing or acquisition structures.</p>
-  <p style="margin-top:12px;font-size:14px;">Email: <a href="mailto:you@example.com" style="color:#a5b4fc;">you@example.com</a></p>
+  <p style="color:#9ca3af;font-size:14px;max-width:720px;">
+    If you operate a payment gateway, high-volume merchant platform, acquiring business, or fintech stack, we’d be happy
+    to walk you through the patent, the architecture, and potential licensing or acquisition structures.
+  </p>
+  <p style="margin-top:12px;font-size:14px;">
+    Email: <a href="mailto:you@example.com">you@example.com</a><br>
+    Subject: <span style="color:#9ca3af;">“Intelligent Routing Patent – Demo & Discussion”</span>
+  </p>
 </section>
 
 </main>
 
-<div class="footer">Intelligent Payment Routing Layer
+<div class="footer">
+  Intelligent Payment Routing Layer · Patent granted in India · Demo environment for illustration only.
+</div>
+
+<script>
+  const scenarios = {
+    normal: {
+      rows: [
+        { name: 'Acquirer A', latency: 120, approval: '95.1%', mdr: '1.80%', share: '52%', status: 'Preferred', statusClass: 'pill-good' },
+        { name: 'Acquirer B', latency: 210, approval: '92.4%', mdr: '1.95%', share: '33%', status: 'Healthy', statusClass: 'pill-good' },
+        { name: 'Acquirer C', latency: 340, approval: '88.7%', mdr: '2.10%', share: '15%', status: 'Degrading', statusClass: 'pill-warn' }
+      ],
+      approvalsBefore: '91.2%',
+      approvalsAfter: '94.8%',
+      mdrBefore: '2.10%',
+      mdrAfter: '1.82%',
+      description: 'Normal conditions. Routing layer favors Acquirer A, with spillover to B and limited use of C.'
+    },
+    outage: {
+      rows: [
+        { name: 'Acquirer A', latency: '—', approval: '—', mdr: '1.80%', share: '0%', status: 'Outage', statusClass: 'pill-bad' },
+        { name: 'Acquirer B', latency: 190, approval: '93.8%', mdr: '1.95%', share: '71%', status: 'Preferred', statusClass: 'pill-good' },
+        { name: 'Acquirer C', latency: 310, approval: '89.9%', mdr: '2.05%', share: '29%', status: 'Backup', statusClass: 'pill-warn' }
+      ],
+      approvalsBefore: '88.4%',
+      approvalsAfter: '93.1%',
+      mdrBefore: '1.98%',
+      mdrAfter: '1.90%',
+      description: 'Acquirer A outage. Routing layer automatically shifts traffic to B and C to preserve approvals and uptime.'
+    },
+    cost: {
+      rows: [
+        { name: 'Acquirer A', latency: 130, approval: '94.2%', mdr: '2.30%', share: '18%', status: 'Cost spike', statusClass: 'pill-warn' },
+        { name: 'Acquirer B', latency: 205, approval: '93.1%', mdr: '1.85%', share: '57%', status: 'Preferred', statusClass: 'pill-good' },
+        { name: 'Acquirer C', latency: 320, approval: '89.4%', mdr: '1.90%', share: '25%', status: 'Backup', statusClass: 'pill-good' }
+      ],
+      approvalsBefore: '92.0%',
+      approvalsAfter: '93.5%',
+      mdrBefore: '2.15%',
+      mdrAfter: '1.89%',
+      description: 'MDR spike on Acquirer A. Routing layer shifts volume to lower-cost acquirers while preserving approvals.'
+    }
+  };
+
+  function renderScenario(key) {
+    const scenario = scenarios[key];
+    const tbody = document.querySelector('#acquirer-table-advanced tbody');
+    tbody.innerHTML = scenario.rows.map(row => `
+      <tr>
+        <td>${row.name}</td>
+        <td>${row.latency}</td>
+        <td>${row.approval}</td>
+        <td>${row.mdr}</td>
+        <td>${row.share}</td>
+        <td><span class="pill ${row.statusClass}">${row.status}</span></td>
+      </tr>
+    `).join('');
+
+    document.getElementById('approvals-text').textContent =
+      \`Before routing layer: \${scenario.approvalsBefore}. With routing layer: \${scenario.approvalsAfter}.\`;
+    document.getElementById('mdr-text').textContent =
+      \`Before routing layer: \${scenario.mdrBefore}. With routing layer: \${scenario.mdrAfter}.\`;
+    document.getElementById('scenario-description').textContent = scenario.description;
+  }
+
+  function setScenario(key) {
+    renderScenario(key);
+  }
+
+  function calculateSavings() {
+    const volume = parseFloat(document.getElementById('volume').value || '0');
+    const mdrCurrent = parseFloat(document.getElementById('mdr-current').value || '0');
+    const mdrNew = parseFloat(document.getElementById('mdr-new').value || '0');
+
+    if (!volume || !mdrCurrent || !mdrNew || mdrNew >= mdrCurrent) {
+      document.getElementById('savings-result').textContent =
+        'Enter valid values. Expected MDR with routing layer should be lower than current MDR.';
+      return;
+    }
+
+    const costCurrent = volume * (mdrCurrent / 100);
+    const costNew = volume * (mdrNew / 100);
+    const savings = costCurrent - costNew;
+
+    document.getElementById('savings-result').textContent =
+      \`Estimated annual savings: \$\${savings.toLocaleString(undefined, {maximumFractionDigits: 0})} USD.\`;
+  }
+
+  function simulateBid() {
+    const approval = parseFloat(document.getElementById('bid-approval').value || '0');
+    const mdr = parseFloat(document.getElementById('bid-mdr').value || '0');
+    const latency = parseFloat(document.getElementById('bid-latency').value || '0');
+
+    const score = (approval * 1.5) - (mdr * 20) - (latency * 0.05);
+
+    let share;
+    if (score >= 130) share = '≈ 60–75% of eligible volume';
+    else if (score >= 120) share = '≈ 40–60% of eligible volume';
+    else if (score >= 110) share = '≈ 25–40% of eligible volume';
+    else share = '≈ 10–25% of eligible volume';
+
+    document.getElementById('bid-result').textContent =
+      \`With these metrics, the routing engine would likely send \${share} to Acquirer X.\`;
+  }
+
+  function initBrain() {
+    const container = document.getElementById('brain-nodes');
+    if (!container) return;
+    const labels = ['Latency', 'MDR', 'Approval', 'BIN', 'Card type', 'Region', 'Issuer', 'History', 'Risk', 'Token', '3DS', 'Fallback'];
+    container.innerHTML = labels.map(label => {
+      const size = 40 + Math.random() * 30;
+      const opacity = 0.4 + Math.random() * 0.4;
+      return `
+        <div style="
+          width:${size}px;
+          height:${size}px;
+          border-radius:999px;
+          background:radial-gradient(circle at 30% 30%, #22d3ee, #1d2433);
+          opacity:${opacity};
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:9px;
+          text-align:center;
+          color:#e5e7eb;
+        ">
+          ${label}
+        </div>
+      `;
+    }).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderScenario('normal');
+    initBrain();
+  });
+</script>
+
+</body>
+</html>
