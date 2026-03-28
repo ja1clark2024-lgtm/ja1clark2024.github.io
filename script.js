@@ -152,6 +152,36 @@ function highlightButton(type) {
   document.querySelectorAll(".btn-ghost").forEach(btn => btn.classList.remove("btn-ghost-active"));
   document.querySelector(`[onclick="setScenario('${type}')"]`).classList.add("btn-ghost-active");
 }
+/* ---------------------------------------------------------
+   STRIPE-STYLE ANIMATION HELPERS
+   --------------------------------------------------------- */
+
+function animateTableRows() {
+  const rows = document.querySelectorAll("#acquirer-table-advanced tbody tr");
+  rows.forEach((row, i) => {
+    row.style.opacity = 0;
+    setTimeout(() => {
+      row.classList.add("table-row-animate");
+    }, i * 40); // 40ms stagger
+  });
+}
+
+function animateBrainPills() {
+  const pills = document.querySelectorAll("#brain-nodes .pill");
+  pills.forEach((pill, i) => {
+    pill.style.opacity = 0;
+    setTimeout(() => {
+      pill.classList.add("brain-pill-animate");
+    }, i * 35); // 35ms stagger
+  });
+}
+
+function animateScenarioText() {
+  ["scenario-description", "approvals-text", "mdr-text"].forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.add("scenario-fade");
+  });
+}
 
 
 /* ---------------------------------------------------------
