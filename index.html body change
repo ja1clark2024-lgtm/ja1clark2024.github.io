@@ -485,6 +485,198 @@
   </nav>
 </header>
 
+<div class="page-shell">
+  <header class="hero-header">
+    <div class="hero-title-block">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Intelligent Payment Routing
+      </div>
+      <h1>Smart routing across acquirers, gateways, and issuers</h1>
+      <p>
+        One decision engine that lifts approvals, lowers MDR, and keeps merchants live when individual acquirers fail.
+      </p>
+      <div class="hero-kpi-row">
+        <div class="kpi-chip">
+          Uplift in approvals: <strong>+2.8–4.5 pts</strong>
+        </div>
+        <div class="kpi-chip">
+          MDR savings: <strong>15–40 bps</strong>
+        </div>
+        <div class="kpi-chip">
+          Outage failover: <strong>&lt; 200 ms</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout-grid">
+    <!-- LEFT: Acquirer routing table + scenarios (your existing content can live here) -->
+    <section class="card">
+      <div class="card-inner">
+        <div class="card-header">
+          <div>
+            <h2>Acquirer routing in real time</h2>
+            <p class="card-subtitle">
+              Compare latency, approval rate, MDR, and share of volume across acquirers under different conditions.
+            </p>
+          </div>
+          <button class="btn-primary" onclick="setScenario('normal')">
+            Reset to normal
+          </button>
+        </div>
+
+        <div class="scenario-toggle-row">
+          <button class="btn-ghost" onclick="setScenario('normal')">Normal</button>
+          <button class="btn-ghost" onclick="setScenario('outage')">Outage</button>
+          <button class="btn-ghost" onclick="setScenario('cost')">MDR spike</button>
+        </div>
+
+        <!-- your existing table -->
+        <table id="acquirer-table-advanced">
+          <thead>
+            <tr>
+              <th>Acquirer</th>
+              <th>Latency (ms)</th>
+              <th>Approval</th>
+              <th>MDR</th>
+              <th>Share</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div class="metric-row">
+          <div class="metric-pill" id="approvals-text">
+            Before routing layer: 91.2%. With routing layer: 94.8%.
+          </div>
+          <div class="metric-pill" id="mdr-text">
+            Before routing layer: 2.10%. With routing layer: 1.82%.
+          </div>
+        </div>
+
+        <p id="scenario-description" class="result-text-muted" style="margin-top:10px;">
+          Normal conditions. Routing layer favors Acquirer A, with spillover to B and limited use of C.
+        </p>
+      </div>
+    </section>
+
+    <!-- RIGHT: Merchant calculator + brain visual -->
+    <section class="card">
+      <div class="card-inner">
+        <div class="card-header">
+          <div>
+            <h2>Merchant impact dashboard</h2>
+            <p class="card-subtitle">
+              Model MDR savings and see how the routing brain weighs latency, cost, and approval probability.
+            </p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Annual card volume (USD)</label>
+            <input id="volume" type="number" placeholder="e.g. 50,000,000" />
+          </div>
+          <div class="form-field">
+            <label>Current blended MDR (%)</label>
+            <input id="mdr-current" type="number" step="0.01" placeholder="e.g. 2.10" />
+          </div>
+          <div class="form-field">
+            <label>Expected MDR with routing (%)</label>
+            <input id="mdr-new" type="number" step="0.01" placeholder="e.g. 1.85" />
+          </div>
+          <div class="form-field" style="align-self:flex-end;">
+            <button class="btn-primary" onclick="calculateSavings()">
+              Calculate savings
+            </button>
+          </div>
+        </div>
+
+        <div id="savings-result" class="result-text">
+          Enter volume and MDR to estimate annual savings.
+        </div>
+
+        <div class="brain-shell" style="margin-top:14px;">
+          <h3>Routing brain inputs</h3>
+          <p class="card-subtitle">
+            The engine scores each transaction using latency, MDR, approval history, BIN, card type, and more.
+          </p>
+          <div class="brain-orbit">
+            <div id="brain-nodes" class="brain-nodes-row"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Multi‑stakeholder mini dashboards -->
+  <section class="card" style="margin-top:18px;">
+    <div class="card-inner">
+      <div class="card-header">
+        <div>
+          <h2>Stakeholder dashboards</h2>
+          <p class="card-subtitle">
+            Each participant in the chain sees a different slice of value from the same routing decision.
+          </p>
+        </div>
+      </div>
+
+      <div class="stacked-dashboards">
+        <div class="mini-dash">
+          <div class="mini-dash-inner">
+            <div class="mini-dash-title">Merchant</div>
+            <div class="mini-dash-value">+3.2 pts</div>
+            <div class="mini-dash-sub">Approval rate uplift vs. single‑acquirer baseline.</div>
+            <div class="mini-dash-tag">
+              More captured revenue
+            </div>
+            <div class="mini-dash-spark"></div>
+          </div>
+        </div>
+
+        <div class="mini-dash">
+          <div class="mini-dash-inner">
+            <div class="mini-dash-title">Gateway</div>
+            <div class="mini-dash-value">99.98%</div>
+            <div class="mini-dash-sub">Checkout uptime with multi‑acquirer failover.</div>
+            <div class="mini-dash-tag">
+              Premium routing tier
+            </div>
+            <div class="mini-dash-spark"></div>
+          </div>
+        </div>
+
+        <div class="mini-dash">
+          <div class="mini-dash-inner">
+            <div class="mini-dash-title">Acquirer</div>
+            <div class="mini-dash-value">+18%</div>
+            <div class="mini-dash-sub">Incremental volume won via routing engine.</div>
+            <div class="mini-dash-tag">
+              Performance‑based bids
+            </div>
+            <div class="mini-dash-spark"></div>
+          </div>
+        </div>
+
+        <div class="mini-dash">
+          <div class="mini-dash-inner">
+            <div class="mini-dash-title">Issuer / Network</div>
+            <div class="mini-dash-value">‑27%</div>
+            <div class="mini-dash-sub">False declines on good traffic.</div>
+            <div class="mini-dash-tag bad">
+              Better signal, less noise
+            </div>
+            <div class="mini-dash-spark"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+  
+
 <main>
 
 <section class="hero">
