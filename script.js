@@ -46,12 +46,15 @@ const scenarios = {
    RENDER SCENARIO
    --------------------------------------------------------- */
 
+function highlightButton(type) {
+  document.querySelectorAll(".btn-ghost").forEach(btn => btn.classList.remove("btn-ghost-active"));
+  document.querySelector(`[onclick="setScenario('${type}')"]`).classList.add("btn-ghost-active");
+}
 
 function setScenario(type) {
   highlightButton(type);
   renderScenario(scenarios[type]);
 }
-
 
 function renderScenario(scenario) {
   const tbody = document.querySelector("#acquirer-table-advanced tbody");
