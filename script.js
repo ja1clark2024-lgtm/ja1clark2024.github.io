@@ -192,9 +192,16 @@ function animateBrainPills() {
 function animateScenarioText() {
   ["scenario-description", "approvals-text", "mdr-text"].forEach(id => {
     const el = document.getElementById(id);
+
+    // Reset animation
+    el.classList.remove("scenario-fade");
+    void el.offsetWidth; // forces reflow so animation can replay
+
+    // Reapply animation
     el.classList.add("scenario-fade");
   });
 }
+
 
 
 /* ---------------------------------------------------------
