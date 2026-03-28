@@ -238,6 +238,42 @@
   border: 1px solid rgba(234, 179, 8, 0.4);
 }
 
+    /* Fade + slide up (Stripe-style micro-motion) */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Table row animation */
+.table-row-animate {
+  animation: fadeSlide 0.22s ease-out forwards;
+}
+
+/* Routing brain pill animation */
+.brain-pill-animate {
+  animation: fadeSlide 0.18s ease-out forwards;
+}
+
+/* Scenario text fade */
+.scenario-fade {
+  animation: fadeSlide 0.25s ease-out forwards;
+}
+
+/* Active button micro-animation */
+.btn-ghost-active {
+  border-color: var(--accent);
+  color: var(--accent);
+  transition: all 0.18s ease-out;
+  transform: translateY(-1px);
+}
+
+
   </style>
 </head>
 
