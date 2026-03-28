@@ -143,6 +143,11 @@ function initBrain() {
   });
 }
 
+function highlightButton(type) {
+  document.querySelectorAll(".btn-ghost").forEach(btn => btn.classList.remove("btn-ghost-active"));
+  document.querySelector(`[onclick="setScenario('${type}')"]`).classList.add("btn-ghost-active");
+}
+
 
 /* ---------------------------------------------------------
    INITIALIZE DEFAULT SCENARIO
