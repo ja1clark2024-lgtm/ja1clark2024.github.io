@@ -53,6 +53,30 @@
   color: var(--accent);
 }
 
+    @keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table-row-animate {
+  animation: fadeSlide 0.22s ease-out forwards;
+}
+
+.brain-pill-animate {
+  animation: fadeSlide 0.18s ease-out forwards;
+}
+
+.scenario-fade {
+  animation: fadeSlide 0.25s ease-out forwards;
+}
+
+
     
     .page-shell {
       max-width: 1200px;
