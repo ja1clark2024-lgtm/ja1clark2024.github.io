@@ -57,6 +57,7 @@ function setScenario(type) {
 }
 
 function renderScenario(scenario) {
+  // Update table
   const tbody = document.querySelector("#acquirer-table-advanced tbody");
   tbody.innerHTML = "";
 
@@ -75,12 +76,20 @@ function renderScenario(scenario) {
     tbody.appendChild(row);
   });
 
+  // Update scenario text
   document.getElementById("scenario-description").textContent = scenario.description;
   document.getElementById("approvals-text").textContent = scenario.approvalsText;
   document.getElementById("mdr-text").textContent = scenario.mdrText;
 
+  // Rebuild routing brain
   initBrain();
+
+  // Stripe-style animations
+  animateTableRows();
+  animateBrainPills();
+  animateScenarioText();
 }
+
 
 function renderStatus(status) {
   if (status === "Healthy") {
