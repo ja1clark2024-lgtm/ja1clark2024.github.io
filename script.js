@@ -46,10 +46,12 @@ const scenarios = {
    RENDER SCENARIO
    --------------------------------------------------------- */
 
+
 function setScenario(type) {
-  const scenario = scenarios[type];
-  renderScenario(scenario);
+  highlightButton(type);
+  renderScenario(scenarios[type]);
 }
+
 
 function renderScenario(scenario) {
   const tbody = document.querySelector("#acquirer-table-advanced tbody");
