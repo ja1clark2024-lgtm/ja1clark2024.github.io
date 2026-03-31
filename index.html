@@ -566,5 +566,270 @@ body {
 
   <!-- YOUR EXISTING JS -->
   <script src="script.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+     LICENSING INQUIRY FORM — paste before </body>
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="contact" style="
+  max-width: 640px;
+  margin: 60px auto 80px;
+  padding: 0 24px;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+">
+
+  <h2 style="
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+  ">Request Exclusive Licensing Terms</h2>
+
+  <p style="
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+    line-height: 1.5;
+  ">Complete the form below and our licensing team will respond
+  within one business day with a tailored proposal referencing
+  Indian Patent 530774.</p>
+
+  <form id="licensingForm" style="
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 36px 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  ">
+
+    <!-- Honeypot anti-spam (hidden from real users) -->
+    <div style="position:absolute;left:-9999px;" aria-hidden="true">
+      <input type="text" name="_gotcha" tabindex="-1"
+             autocomplete="off">
+    </div>
+
+    <!-- Full Name -->
+    <div style="margin-bottom: 20px;">
+      <label for="fullName" style="display:block;color:#e2e8f0;
+        font-size:0.85rem;font-weight:600;margin-bottom:6px;">
+        Full Name <span style="color:#f87171;">*</span>
+      </label>
+      <input type="text" id="fullName" name="name" required
+        placeholder="Jane Smith"
+        style="width:100%;padding:12px 14px;background:#0f172a;
+        border:1px solid #475569;border-radius:8px;color:#f1f5f9;
+        font-size:0.95rem;outline:none;transition:border-color 0.2s;
+        box-sizing:border-box;"
+        onfocus="this.style.borderColor='#3b82f6'"
+        onblur="this.style.borderColor='#475569'">
+    </div>
+
+    <!-- Company -->
+    <div style="margin-bottom: 20px;">
+      <label for="company" style="display:block;color:#e2e8f0;
+        font-size:0.85rem;font-weight:600;margin-bottom:6px;">
+        Company <span style="color:#f87171;">*</span>
+      </label>
+      <input type="text" id="company" name="company" required
+        placeholder="Acme Payments Inc."
+        style="width:100%;padding:12px 14px;background:#0f172a;
+        border:1px solid #475569;border-radius:8px;color:#f1f5f9;
+        font-size:0.95rem;outline:none;transition:border-color 0.2s;
+        box-sizing:border-box;"
+        onfocus="this.style.borderColor='#3b82f6'"
+        onblur="this.style.borderColor='#475569'">
+    </div>
+
+    <!-- Role -->
+    <div style="margin-bottom: 20px;">
+      <label for="role" style="display:block;color:#e2e8f0;
+        font-size:0.85rem;font-weight:600;margin-bottom:6px;">
+        Role / Title <span style="color:#f87171;">*</span>
+      </label>
+      <input type="text" id="role" name="role" required
+        placeholder="VP of Payments"
+        style="width:100%;padding:12px 14px;background:#0f172a;
+        border:1px solid #475569;border-radius:8px;color:#f1f5f9;
+        font-size:0.95rem;outline:none;transition:border-color 0.2s;
+        box-sizing:border-box;"
+        onfocus="this.style.borderColor='#3b82f6'"
+        onblur="this.style.borderColor='#475569'">
+    </div>
+
+    <!-- Business Email -->
+    <div style="margin-bottom: 20px;">
+      <label for="email" style="display:block;color:#e2e8f0;
+        font-size:0.85rem;font-weight:600;margin-bottom:6px;">
+        Business Email <span style="color:#f87171;">*</span>
+      </label>
+      <input type="email" id="email" name="email" required
+        placeholder="jane@acmepay.com"
+        style="width:100%;padding:12px 14px;background:#0f172a;
+        border:1px solid #475569;border-radius:8px;color:#f1f5f9;
+        font-size:0.95rem;outline:none;transition:border-color 0.2s;
+        box-sizing:border-box;"
+        onfocus="this.style.borderColor='#3b82f6'"
+        onblur="this.style.borderColor='#475569'">
+    </div>
+
+    <!-- Message (optional) -->
+    <div style="margin-bottom: 28px;">
+      <label for="message" style="display:block;color:#e2e8f0;
+        font-size:0.85rem;font-weight:600;margin-bottom:6px;">
+        Message <span style="color:#64748b;font-weight:400;">
+        (optional)</span>
+      </label>
+      <textarea id="message" name="message" rows="4"
+        placeholder="Tell us about your use case, transaction
+        volume, or specific licensing questions..."
+        style="width:100%;padding:12px 14px;background:#0f172a;
+        border:1px solid #475569;border-radius:8px;color:#f1f5f9;
+        font-size:0.95rem;outline:none;transition:border-color 0.2s;
+        resize:vertical;font-family:inherit;
+        box-sizing:border-box;"
+        onfocus="this.style.borderColor='#3b82f6'"
+        onblur="this.style.borderColor='#475569'"></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" id="submitBtn" style="
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      letter-spacing: 0.02em;
+    " onmouseover="this.style.opacity='0.9'"
+       onmouseout="this.style.opacity='1'"
+       onmousedown="this.style.transform='scale(0.98)'"
+       onmouseup="this.style.transform='scale(1)'">
+      Request Licensing Terms &rarr;
+    </button>
+
+    <!-- Status Message -->
+    <div id="formStatus" style="
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      min-height: 24px;
+      transition: opacity 0.3s;
+    "></div>
+
+  </form>
+
+  <p style="
+    text-align: center;
+    color: #64748b;
+    font-size: 0.78rem;
+    margin-top: 16px;
+    line-height: 1.4;
+  ">Your information is confidential and used solely for
+  licensing discussions.<br>
+  Protected by Indian Patent 530774.</p>
+
+</section>
+
+  <script>
+(function () {
+  // ──────────────────────────────────────────────────────
+  // CONFIGURATION — choose ONE backend and paste your URL
+  // ──────────────────────────────────────────────────────
+
+  // OPTION A — Google Sheets (Apps Script web-app URL)
+  const BACKEND_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+  // OPTION B — Formspree (replace with your Formspree form ID)
+  // const BACKEND_URL = 'https://formspree.io/f/YOUR_FORM_ID';
+
+  // ──────────────────────────────────────────────────────
+
+  const form   = document.getElementById('licensingForm');
+  const btn    = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Basic client-side validation
+    const name    = form.name.value.trim();
+    const company = form.company.value.trim();
+    const role    = form.role.value.trim();
+    const email   = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !company || !role || !email) {
+      showStatus('Please complete all required fields.', '#f87171');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showStatus('Please enter a valid email address.', '#f87171');
+      return;
+    }
+
+    // Disable button while submitting
+    btn.disabled = true;
+    btn.textContent = 'Submitting\u2026';
+    btn.style.opacity = '0.6';
+
+    const payload = {
+      name:      name,
+      company:   company,
+      role:      role,
+      email:     email,
+      message:   message || '(none)',
+      submitted: new Date().toISOString()
+    };
+
+    try {
+      const isFormspree = BACKEND_URL.includes('formspree.io');
+
+      const res = await fetch(BACKEND_URL, {
+        method: 'POST',
+        headers: isFormspree
+          ? { 'Content-Type': 'application/json',
+              'Accept': 'application/json' }
+          : { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        mode: isFormspree ? 'cors' : 'no-cors'
+      });
+
+      // Formspree returns JSON; Apps Script no-cors = opaque
+      if (isFormspree && !res.ok) throw new Error('Network error');
+
+      showStatus(
+        'Thank you! Our licensing team will be in touch ' +
+        'within one business day.', '#34d399');
+      form.reset();
+    } catch (err) {
+      showStatus(
+        'Something went wrong. Please email us directly ' +
+        'or try again.', '#f87171');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Request Licensing Terms \u2192';
+      btn.style.opacity = '1';
+    }
+  });
+
+  function showStatus(msg, color) {
+    status.textContent = msg;
+    status.style.color = color;
+    setTimeout(function() {
+      status.style.opacity = '0';
+    }, 8000);
+    setTimeout(function() {
+      status.textContent = '';
+      status.style.opacity = '1';
+    }, 8500);
+  }
+})();
+</script>
+  
 </body>
 </html>
